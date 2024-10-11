@@ -17,15 +17,18 @@ model InviteCode {
     code String @id
     guildId String
     userId String
+    
+    uses Int @default(0)
 
     counterId Int
     counter InviteCounts @relation(fields: [counterId], references: [id])
     
+    expired Boolean @default(false)
     expires DateTime?
 }
 
 model InviteCounts {
-    id Int @id
+    id Int @id @default(autoincrement())
 
     userId String
     guildId String

@@ -19,7 +19,7 @@ model InviteCode {
     userId String
 
     counterId Int
-    counter InviteCounts @relation(fields: [guildId,userId],references: [guildId,userId])
+    counter InviteCounts @relation(fields: [counterId], references: [id])
     
     expires DateTime?
 }
